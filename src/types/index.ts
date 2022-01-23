@@ -14,4 +14,5 @@ export interface PersonDetails {
   firstName: string;
   lastName: string;
   email: string;
+  phoneNumber: number;
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
+import { defineComponent, reactive, ref } from 'vue';
 import BaseInput from '@/components/BaseInput.vue';
 import BaseRadioButtonGroup from '@/components/BaseRadioButtonGroup.vue';
 import { formSchema } from './schema/formFields';
@@ -15,28 +15,41 @@ export default defineComponent({
       firstName: '',
       lastName: '',
       email: '',
+      phoneNumber: '',
     });
 
-    return { formSchema, personDetails };
+    const workDetails = reactive<Record<string, any>>({
+      jobTitle: '',
+      companyName: '',
+    });
+
+    return {
+      formSchema,
+      personDetails,
+      workDetails,
+    };
   },
 });
 </script>
 
 <template>
-  <div class="mx-10">
-    <h1>Application form</h1>
-    <div v-for="(schema, index) in formSchema" :key="schema.state">
-      <component
-        :is="schema.inputType"
-        :id="schema.state"
-        :type="schema.type"
-        :name="schema.state"
-        :label="schema.label"
-        :placeholder="schema.placeholder"
-        :options="schema.options"
-        v-model="personDetails[schema.state]"
-      ></component>
-    </div>
+  <div class="m-10">
+    <h1 class="mb-6">Application form</h1>
+    <template v-for="(inputSchema, index) in formSchema" :key="index">
+      <div v-for="schema in inputSchema.workDetails" :key="schema.state">
+        <component
+          :is="schema.inputType"
+          :id="schema.state"
+          :type="schema.type"
+          :name="schema.state"
+          :label="schema.label"
+          :placeholder="schema.placeholder"
+          :options="schema.type === 'radio' ? schema.options : ''"
+          :selected="schema.type === 'radio' ? workDetails[schema.state] : ''"
+          v-model="workDetails[schema.state]"
+        ></component>
+      </div>
+    </template>
   </div>
 </template>
 
