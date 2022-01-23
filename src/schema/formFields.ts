@@ -1,4 +1,6 @@
-export const schema = [
+import { FormSchema } from '../types/index';
+
+export const formSchema: Array<FormSchema> = [
   // {
   //   label: 'Title',
   //   type: 'Select',
@@ -9,10 +11,18 @@ export const schema = [
     label: 'First name',
     type: 'Input',
     state: 'firstName',
+    placeholder: 'First name',
   },
   {
     label: 'Last name',
     type: 'Input',
     state: 'lastName',
+    placeholder: 'Last name',
+  },
+  {
+    label: 'Email address',
+    type: 'Input',
+    state: 'email',
+    placeholder: 'Email address',
   },
 ];

@@ -1,38 +1,29 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
-import BaseInput from './components/BaseInput.vue';
-import schema from './schema/formFields';
+import BaseInput from '@/components/BaseInput.vue';
+import { formSchema } from './schema/formFields';
 
-const personDetails = reactive({
-  title: '',
+const personDetails = reactive<Record<string, any>>({
   firstName: '',
   lastName: '',
+  email: '',
 });
 </script>
 
 <template>
   <div class="mx-10">
     <h1>Application form</h1>
-    <template>
+    <div v-for="(schema, index) in formSchema" :key="schema.state">
       <BaseInput
-        id="firstName"
+        :id="schema.state"
         type="text"
-        name="firstName"
-        label="First name:"
-        placeholder="First name"
-        v-model="personDetails.firstName"
+        :name="schema.state"
+        :label="schema.label"
+        :placeholder="schema.placeholder"
+        v-model="personDetails[schema.state]"
       />
-    </template>
+    </div>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>

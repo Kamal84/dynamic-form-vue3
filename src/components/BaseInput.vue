@@ -37,7 +37,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="flex flex-col items-start">
+  <div class="flex flex-col items-start mb-6">
     <label v-if="label" class="block" :for="id">
       {{ label }}
     </label>
@@ -54,7 +54,7 @@ const props = defineProps({
 
 <style lang="postcss" scoped>
 .base-input {
-  @apply border-2 rounded border-gray-500 focus:border-primary-300 focus:outline-none bg-gray-200 text-gray-900 w-full p-2 mb-6;
+  @apply border-2 rounded border-gray-500 focus:border-primary-300 focus:outline-none bg-gray-200 text-gray-900 w-full p-2;
 
   &::-webkit-input-placeholder {
     @apply text-gray-700;
