@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, reactive, ref } from 'vue';
+import { defineComponent, reactive } from 'vue';
 import BaseInput from '@/components/BaseInput.vue';
 import BaseRadioButtonGroup from '@/components/BaseRadioButtonGroup.vue';
 
@@ -15,22 +15,10 @@ export default defineComponent({
     },
   },
   setup() {
-    const personDetails = reactive<Record<string, any>>({
-      title: '',
-      firstName: '',
-      lastName: '',
-      email: '',
-      phoneNumber: '',
-    });
-
-    const workDetails = reactive<Record<string, any>>({
-      jobTitle: '',
-      companyName: '',
-    });
+    const formObj = reactive<Record<string, any>>({});
 
     return {
-      personDetails,
-      workDetails,
+      formObj,
     };
   },
 });
@@ -46,8 +34,8 @@ export default defineComponent({
       :label="schema.label"
       :placeholder="schema.placeholder"
       :options="schema.type === 'radio' ? schema.options : ''"
-      :selected="schema.type === 'radio' ? workDetails[schema.state] : ''"
-      v-model="workDetails[schema.state]"
+      :selected="schema.type === 'radio' ? formObj[schema.state] : ''"
+      v-model="formObj[schema.state]"
     ></component>
   </div>
 </template>
