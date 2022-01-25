@@ -74,7 +74,11 @@ export default defineComponent({
     </div>
   </form>
   <div class="flex flex-row justify-between">
-    <BaseButton width="w-20 mr-4" colour="default" @click.prevent="prev"
+    <BaseButton
+      v-if="routeIndex !== 0"
+      width="w-20 mr-4"
+      colour="default"
+      @click.prevent="prev"
       >Prev</BaseButton
     >
     <BaseButton
