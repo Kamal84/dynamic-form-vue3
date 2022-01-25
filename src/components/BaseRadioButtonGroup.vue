@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import BaseRadioButton from '@/components/BaseRadioButton.vue';
-
+import { PropType } from 'vue';
 const props = defineProps({
   options: {
-    type: Array,
+    type: Array as PropType<Array<string>>,
     required: true,
   },
   selected: {
@@ -32,8 +32,8 @@ const props = defineProps({
     </p>
     <div class="flex flex-wrap mb-4">
       <BaseRadioButton
-        v-for="option in options"
-        :key="option"
+        v-for="(option, index) in options"
+        :key="index"
         :option="option"
         :selected="selected"
         :error-message="errorMessage"
