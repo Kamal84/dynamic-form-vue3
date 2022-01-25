@@ -38,7 +38,7 @@ import { FormSchema } from '../types/index';
 //   },
 // ];
 
-export const formSchema = {
+export const formSchema: Record<string, any> = {
   personDetails: [
     {
       label: 'Title',

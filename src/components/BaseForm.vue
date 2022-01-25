@@ -5,7 +5,6 @@ import BaseInput from '@/components/BaseInput.vue';
 import BaseRadioButtonGroup from '@/components/BaseRadioButtonGroup.vue';
 import BaseButton from '@/components/BaseButton.vue';
 import { formSchema } from '@/schema/formFields';
-import router from '@/router';
 
 export default defineComponent({
   components: {
@@ -17,8 +16,7 @@ export default defineComponent({
   setup() {
     const route = useRoute();
     const router = useRouter();
-
-    const page = computed(() => route.name);
+    const page: Record<string, any> = computed(() => route.name);
     const obj = computed(() => formSchema[page.value]);
 
     const formObj = reactive<Record<string, any>>({});
