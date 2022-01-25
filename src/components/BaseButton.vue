@@ -8,7 +8,7 @@ const props = defineProps({
   },
   width: {
     type: String,
-    default: 'w-66',
+    default: 'w-full',
   },
   btnContainer: {
     type: Boolean,
@@ -70,7 +70,7 @@ const btnXPadding = computed(() => {
   }
 
   &-default {
-    @apply bg-secondary-600 border-2 border-primary-400 hover:bg-primary-400;
+    @apply bg-secondary-600  hover:bg-primary-400;
   }
 
   &-black {

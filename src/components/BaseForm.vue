@@ -21,22 +21,44 @@ export default defineComponent({
 
     const formObj = reactive<Record<string, any>>({});
 
-    function onSubmit() {
-      router.push(`/apply/${String(page.value)}`);
-    }
+    const routes = computed(() => {
+      const obj = router.options.routes.find((r) => r.name === 'Apply');
+      return obj?.children;
+    });
 
-    console.log(Object.keys(formSchema).length);
+    const routeIndex = computed(() => {
+      return routes.value.findIndex((r) => r.name === page.value);
+    });
+
+    const next = () => {
+      const route = routes.value[routeIndex.value + 1];
+      return router.push(`/apply/${route.path}`);
+    };
+
+    const prev = () => {
+      const route = routes.value[routeIndex.value - 1];
+      return router.push(`/apply/${route.path}`);
+    };
+
+    const onSwitchButton = computed(() => {
+      const routeLength = routes.value.length - 1;
+      return routeLength !== routeIndex.value;
+    });
     return {
       formObj,
-      onSubmit,
       obj,
+      routes,
+      routeIndex,
+      next,
+      prev,
+      onSwitchButton,
     };
   },
 });
 </script>
 
 <template>
-  <form @submit.prevent="onSubmit">
+  <form>
     <div v-for="schema in obj" :key="schema.state">
       <component
         :is="schema.inputType"
@@ -50,6 +72,16 @@ export default defineComponent({
         v-model="formObj[schema.state]"
       ></component>
     </div>
-    <BaseButton colour="primary">Continue</BaseButton>
   </form>
+  <div class="flex flex-row justify-between">
+    <BaseButton width="w-20 mr-4" colour="default" @click.prevent="prev"
+      >Prev</BaseButton
+    >
+    <BaseButton
+      class="flex-1"
+      colour="primary"
+      @click.prevent="onSwitchButton ? next() : ''"
+      >{{ onSwitchButton ? 'Continue' : 'Submit' }}
+    </BaseButton>
+  </div>
 </template>
