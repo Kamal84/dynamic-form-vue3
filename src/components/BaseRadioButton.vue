@@ -40,12 +40,12 @@ const props = defineProps({
 
 <style lang="postcss" scoped>
 label {
-  @apply flex justify-center p-4 mr-2 cursor-pointer border-2 rounded border-gray-500 focus:border-primary-300 bg-gray-200  text-gray-900;
+  @apply flex justify-center p-4 mr-2 cursor-pointer border-2 rounded border-gray-500 focus:border-primary-300 bg-gray-200  text-gray-900 mb-2;
 }
 
-label:last-child {
+/* label:last-child {
   @apply mb-0;
-}
+} */
 
 input[name='radio-input'] {
   @apply hidden;

@@ -26,11 +26,11 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="flex flex-col items-start mb-6">
+  <div class="flex flex-col items-start">
     <p class="block pb-2 mb-2 font-medium text-sm">
       {{ label }}
     </p>
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap mb-4">
       <BaseRadioButton
         v-for="option in options"
         :key="option"

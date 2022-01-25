@@ -76,7 +76,30 @@ export const formSchema = {
       placeholder: 'Phone number',
     },
   ],
-  workDetails: [
+  yourAddress: [
+    {
+      label: 'Your Postcode',
+      type: 'text',
+      inputType: 'BaseInput',
+      state: 'postcode',
+      placeholder: 'Your Postcode',
+    },
+    {
+      label: 'Address Line 1',
+      type: 'text',
+      inputType: 'BaseInput',
+      state: 'addressLine1',
+      placeholder: 'Address Line 1',
+    },
+    {
+      label: 'City',
+      type: 'text',
+      inputType: 'BaseInput',
+      state: 'city',
+      placeholder: 'City',
+    },
+  ],
+  yourIncome: [
     {
       label: 'Job title',
       type: 'text',
@@ -90,6 +113,28 @@ export const formSchema = {
       inputType: 'BaseInput',
       state: 'companyName',
       placeholder: 'Company name',
+    },
+    {
+      label: 'Employment Status',
+      type: 'radio',
+      inputType: 'BaseRadioButtonGroup',
+      state: 'employmentStatus',
+      placeholder: 'Employment Status',
+      options: [
+        'Full time employed',
+        'Part time employed',
+        'Self employed',
+        'Unemployed',
+        'Retired',
+      ],
+    },
+    {
+      label: 'Pay frequency',
+      type: 'radio',
+      inputType: 'BaseRadioButtonGroup',
+      state: 'payFrequency',
+      placeholder: 'Pay frequency',
+      options: ['Weekly', 'twice monthly', 'Monthly', 'Irregular'],
     },
   ],
 };

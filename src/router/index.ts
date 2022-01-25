@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Home from '@/views/Home.vue';
-import Apply from '@/views/apply/Apply.vue';
+import Apply from '@/views/Apply.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -15,8 +15,8 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '',
-        name: 'PersonDetails',
-        component: () => import('@/views/apply/PersonDetails.vue'),
+        name: 'personDetails',
+        component: () => import('@/components/BaseForm.vue'),
         meta: {
           title: 'Tappily | Person Details',
           summary: '',
@@ -24,13 +24,23 @@ const routes: Array<RouteRecordRaw> = [
         },
       },
       {
-        path: 'work-details',
-        name: 'WorkDetails',
-        component: () => import('@/views/apply/WorkDetails.vue'),
+        path: 'your-address',
+        name: 'yourAddress',
+        component: () => import('@/components/BaseForm.vue'),
         meta: {
-          title: 'Tappily | Work Details',
+          title: 'Tappily | Your Address',
           summary: '',
-          pageHeading: 'Work details',
+          pageHeading: 'Your Address',
+        },
+      },
+      {
+        path: 'your-income',
+        name: 'yourIncome',
+        component: () => import('@/components/BaseForm.vue'),
+        meta: {
+          title: 'Tappily | Your Income',
+          summary: '',
+          pageHeading: 'Your Income',
         },
       },
     ],
