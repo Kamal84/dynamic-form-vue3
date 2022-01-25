@@ -31,7 +31,7 @@ const props = defineProps({
       type="radio"
       name="radio-input"
       @change="
-        (event) => $parent.$emit('update:modelValue', event.target.value)
+        (event) => $parent.$emit('update:modelValue', (event.target as HTMLInputElement).value)
       "
     />
     {{ option }}
