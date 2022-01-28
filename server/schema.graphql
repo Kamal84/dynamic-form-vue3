@@ -1,0 +1,7 @@
+type Query {
+  appRoute: [Route]
+}
+
+type Route {
+  path: String
+}
