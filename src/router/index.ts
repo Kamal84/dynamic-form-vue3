@@ -15,6 +15,16 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '',
+        name: 'acceptTerms',
+        component: () => import('@/components/BaseForm.vue'),
+        meta: {
+          title: 'Tappily | Accept Terms & Conditions',
+          summary: '',
+          pageHeading: 'Accept Terms & Conditions',
+        },
+      },
+      {
+        path: 'person-details',
         name: 'personDetails',
         component: () => import('@/components/BaseForm.vue'),
         meta: {
@@ -41,6 +51,16 @@ const routes: Array<RouteRecordRaw> = [
           title: 'Tappily | Your Income',
           summary: '',
           pageHeading: 'Your Income',
+        },
+      },
+      {
+        path: 'your-bank',
+        name: 'yourBank',
+        component: () => import('@/components/BaseForm.vue'),
+        meta: {
+          title: 'Tappily | Your Bank',
+          summary: '',
+          pageHeading: 'Your Bank',
         },
       },
     ],

@@ -1,4 +1,14 @@
 export const formSchema: Record<string, any> = {
+  acceptTerms: [
+    {
+      label: 'Accept Terms',
+      type: 'radio',
+      inputType: 'BaseRadioButtonGroup',
+      state: 'acceptTerms',
+      placeholder: 'Accept Terms',
+      options: ['Yes', 'No'],
+    },
+  ],
   personDetails: [
     {
       label: 'Title',
@@ -95,6 +105,16 @@ export const formSchema: Record<string, any> = {
       state: 'payFrequency',
       placeholder: 'Pay frequency',
       options: ['Weekly', 'twice monthly', 'Monthly', 'Irregular'],
+    },
+  ],
+  yourBank: [
+    {
+      label: 'Your Bank',
+      type: 'radio',
+      inputType: 'BaseRadioButtonGroup',
+      state: 'yourBank',
+      placeholder: 'Your Bank',
+      options: ['Barclays', 'HSBC', 'Halifax', 'Santander', 'Metro'],
     },
   ],
 };
