@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import router from '@/router';
 import App from './App.vue';
 import './assets/css/index.css';
+import { createPinia } from 'pinia';
 
 import {
   ApolloClient,
@@ -27,5 +28,6 @@ const apolloClient = new ApolloClient({
 
 const app = createApp(App)
   .use(router)
+  .use(createPinia())
   .provide(DefaultApolloClient, apolloClient);
 app.mount('#app');
