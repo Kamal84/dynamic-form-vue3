@@ -3,8 +3,10 @@ import BaseButton from '@/components/BaseButton.vue';
 import { useRouter } from 'vue-router';
 import { useQuery } from '@vue/apollo-composable';
 import gql from 'graphql-tag';
+import { useAppRoute } from '@/store/useAppRoute';
 
 const router = useRouter();
+const appRoute = useAppRoute();
 function onClick() {
   router.push('/apply');
 }
@@ -19,8 +21,8 @@ const { onResult } = useQuery(gql`
 
 // Save alerts endpoint in store
 onResult((result) => {
-  const newvr = result.data.appRoute;
-  console.log(newvr.map((r) => r.path));
+  const routes = result.data.appRoute.map((name: any) => name.path);
+  appRoute.givenRoutes(routes);
 });
 </script>
 <template>

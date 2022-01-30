@@ -8,6 +8,9 @@ const typeDefs = gql(schema);
 
 const getRoutes = [
   {
+    path: 'acceptTerms',
+  },
+  {
     path: 'personDetails',
   },
   {
@@ -15,6 +18,9 @@ const getRoutes = [
   },
   {
     path: 'yourIncome',
+  },
+  {
+    path: 'yourBank',
   },
 ];
 

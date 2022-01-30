@@ -16,3 +16,11 @@ export interface PersonDetails {
   email: string;
   phoneNumber: number;
 }
+
+export interface AppRoute {
+  appRoute: Array<Record<string, Path>>;
+}
+
+export interface Path {
+  path: string;
+}
